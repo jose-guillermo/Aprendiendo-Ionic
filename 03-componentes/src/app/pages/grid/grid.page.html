@@ -1,0 +1,25 @@
+<app-header title="Grid" />
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid fixed>
+    <ion-row>
+      @for (item of [1,1,1,1,1,1,1,1,1,1,1,1]; track $index) {
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6">
+        <ion-card>
+          <ion-img src="/assets/stan-lee.jpg"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+            <ion-card-title>Awesome Title</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+            exercitationem voluptatibus minima distinctio facere rem recusandae
+            aut id ut, iure ducimus quis eos veniam nam, error similique
+            molestiae? Libero, voluptate!
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+</ion-content>

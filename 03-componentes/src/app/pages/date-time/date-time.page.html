@@ -1,0 +1,65 @@
+<app-header title="DateTime"/>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Datos de nacimiento</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-datetime  [value]="fechaNaci.toISOString()"
+        [showDefaultButtons]="true"
+        (ionChange)="cambioFecha($event)"
+        presentation="date"
+        [preferWheel]="true"
+      >
+        <span slot="title">Fecha de nacimiento</span>
+      </ion-datetime>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>Restricciones</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-datetime
+        [showDefaultButtons]="true"
+        presentation="date"
+        [preferWheel]="true"
+        min="2015-01-01"
+        max="2025-12-31"
+      >
+        <span slot="title">Min y Max</span>
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-datetime
+        [showDefaultButtons]="true"
+        presentation="year"
+        [preferWheel]="true"
+        min="2015"
+        max="2025"
+      >
+        <span slot="title">Años</span>
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-datetime
+        #datetime
+        [showDefaultButtons]="true"
+        presentation="date"
+        [preferWheel]="true"
+        [value]="fechaNaci.toISOString()"
+        [yearValues]="yearValues"
+      >
+        <span slot="title">Custom Options</span>
+        <ion-buttons slot="buttons">
+          <ion-button color="primary"  (click)="mostrarFecha(datetime)">Mostrar fecha</ion-button>
+          <ion-button color="primary" (click)="datetime.reset()">Reset</ion-button>
+          <ion-button color="primary" (click)="datetime.confirm()">Confirmar Fecha</ion-button>
+        </ion-buttons>
+      </ion-datetime>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

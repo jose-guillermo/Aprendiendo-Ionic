@@ -1,0 +1,17 @@
+<app-header title="action sheet"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-button (click)="presentActionSheet()" expand="block" >
+    Mostrar action-sheet
+  </ion-button>
+
+  <!-- Con ion-action-sheet -->
+  <ion-button expand="block" id="open-action-sheet">Action-sheet con ion-action-sheet</ion-button>
+  <ion-action-sheet
+    backdropDismiss="false"
+    trigger="open-action-sheet"
+    header="Albumes"
+    subHeader="usar ion-action-sheet"
+    [buttons]="actionSheetButtons"
+  ></ion-action-sheet>
+</ion-content>

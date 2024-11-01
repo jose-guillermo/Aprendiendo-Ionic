@@ -1,0 +1,32 @@
+<app-header title="alert"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-button (click)="presentAlert()" expand="block">
+    Alert
+  </ion-button>
+
+  <ion-button (click)="presentAlertMultibuttons()" expand="block">
+    Alert multibuttons
+  </ion-button>
+
+  <!-- Con ion-alert -->
+  <ion-button expand="block" id="present-alert">Alert con ion-alert</ion-button>
+  <ion-alert
+    trigger="present-alert"
+    header="A Short Title Is Best"
+    subHeader="A Sub Header Is Optional"
+    message="A message should be a short, complete sentence."
+    [buttons]="alertButtons"
+  />
+
+  <!-- Prompt buttons -->
+  <ion-button expand="block" id="present-alert-prompt">Click Me</ion-button>
+  <ion-alert
+    backdropDismiss="false"
+    trigger="present-alert-prompt"
+    header="Please enter your info"
+    [buttons]="alertButtons"
+    [inputs]="alertInputs"
+  ></ion-alert>
+
+</ion-content>

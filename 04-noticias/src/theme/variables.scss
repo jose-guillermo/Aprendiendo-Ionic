@@ -1,0 +1,15 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+:root{
+  // primary
+  // --ion-color-primary: #569400;
+
+  // dark theme
+}
+
+@media(prefers-color-scheme: dark) {
+  body {
+    // --ion-color-primary: #951efe;
+  }
+}

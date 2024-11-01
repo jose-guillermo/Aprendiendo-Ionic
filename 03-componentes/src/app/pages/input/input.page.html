@@ -1,0 +1,61 @@
+<app-header [title]="name || 'Input Forms'" />
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Input normal</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-input
+        label="Nombre"
+        type="text"
+        placeholder="Awesome Input"
+        [(ngModel)]="name"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input fill="outline" mode="md" label="Floating label" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <!-- Label slot -->
+    <ion-item>
+      <ion-input mode="md" fill="solid" labelPlacement="floating">
+        <div slot="label">
+          Esto es un
+          <ion-text color="danger" class="bold-text">slot label</ion-text>
+        </div>
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <ion-list-header>
+      <ion-label>Formulario válido: {{ myForm.valid }}</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-input
+        formControlName="email"
+        label="Email:"
+        type="email"
+        placeholder="Email"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        formControlName="password"
+        label="Contraseña:"
+        type="password"
+        placeholder="Contraseña"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="myForm.invalid" type="submit" expand="block">
+      Login
+    </ion-button>
+  </form>
+</ion-content>

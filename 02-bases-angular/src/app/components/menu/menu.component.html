@@ -1,0 +1,11 @@
+<ul class="list-group">
+  @for (ruta of rutas(); track $index) {
+    <a routerLink="{{ ruta.path }}"
+    class="list-group-item"
+    >
+      {{ ruta.name }}
+    </a>
+
+  }
+
+</ul>

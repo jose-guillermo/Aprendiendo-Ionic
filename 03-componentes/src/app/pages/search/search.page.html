@@ -1,0 +1,28 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">search</ion-title>
+  </ion-toolbar>
+
+  <ion-searchbar
+    placeholder="Buscar album"
+    animated
+    inputmode="text"
+    (ionInput)="onSearchChange($event)"
+    [debounce]="250"
+  ></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    @for (album of albumes | filtro:textoBuscar():"title"; track $index) {
+      <ion-item>
+        <ion-label>{{ album.title }}</ion-label>
+      </ion-item>
+
+    }
+  </ion-list>
+</ion-content>

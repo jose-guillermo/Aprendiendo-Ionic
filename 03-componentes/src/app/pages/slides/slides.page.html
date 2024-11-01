@@ -1,0 +1,18 @@
+<ion-content [fullscreen]="true">
+  <swiper-container pagination="true" class="slide-full">
+    <swiper-slide *ngFor="let slide of slides" class="slide-1">
+      <ion-card mode="ios">
+        <img [src]="slide.img" class="slide-image" alt="" />
+        <ion-card-header>
+          <ion-card-subtitle>{{slide.titulo}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content> {{slide.desc}} </ion-card-content>
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-button (click)="onClick()" expand="block" fill="clear">
+        Comenzar
+      </ion-button>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
