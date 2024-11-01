@@ -1,0 +1,18 @@
+<swiper-container
+  [slidesPerView]="3.3"
+  free-mode
+  [slidesPerGroup]="2"
+  [grid]="{rows: 2, fill: 'row'}"
+  (swiperreachend)="cargarSlides()"
+  #swiper
+>
+  @for (pelicula of peliculas; track $index; ) {
+    <swiper-slide>
+      <ion-card mode="md" (click)="verDetalle( pelicula.id )">
+        <img class="poster" [src]="pelicula.poster_path | imagen" alt="" />
+      </ion-card>
+    </swiper-slide>
+  }
+
+
+</swiper-container>

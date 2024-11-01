@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Buscar Película
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar>
+  <ion-searchbar
+    placeholder="Buscar Película"
+    animated
+    mode="ios"
+    inputmode="decimal"
+    type="decimal"
+    [value]="textoBuscar()"
+    (ionInput)="buscar($event)"
+    (ionChange)="buscar($event)"
+    debounce="700"
+    showCancelButton="always"></ion-searchbar>
+</ion-toolbar>
+
+
+<ion-content [fullscreen]="true">
+
+  @if (buscando()) {
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-spinner name="crescent"></ion-spinner>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  }
+
+
+  @if( peliculas().length === 0 ){
+    <ion-list mode="ios">
+      <ion-list-header>
+        <ion-label>Sugerencias</ion-label>
+      </ion-list-header>
+
+      @for (sugerencia of sugerencias(); track $index) {
+        <ion-item (click)="clickSugerencia(sugerencia)">
+          <ion-label color="primary">{{ sugerencia }}</ion-label>
+        </ion-item>
+      }
+    </ion-list>
+  } @else {
+    <ion-grid fixed>
+      <ion-row>
+        @for (pelicula of peliculas(); track $index) {
+          <ion-col size="6">
+            <ion-card (click)="verDetalle( pelicula.id )">
+              <ion-img [src]="pelicula.poster_path | imagen" />
+              <ion-card-header>
+                <ion-card-subtitle>{{ pelicula.release_date }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <h2>{{ pelicula.title }}</h2>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+        }
+      </ion-row>
+    </ion-grid>
+  }
+
+</ion-content>

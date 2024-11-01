@@ -1,0 +1,13 @@
+<swiper-container class="slide-full" [slidesPerView]="1.2" free-mode>
+  @for (pelicula of peliculas; track $index) {
+    @if (pelicula.backdrop_path) {
+      <swiper-slide>
+        <ion-card (click)="verDetalle( pelicula.id )">
+
+          <img [src]="pelicula.backdrop_path | imagen" alt="">
+        </ion-card>
+      </swiper-slide>
+    }
+  }
+
+</swiper-container>
